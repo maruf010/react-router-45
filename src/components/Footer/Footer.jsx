@@ -2,7 +2,7 @@ import React from 'react';
 
 const Footer = () => {
     return (
-        <div className='flex justify-evenly py-5 bg-amber-500'>
+        <div className='mt-2 flex justify-evenly py-5 bg-amber-500'>
             <p>I am footer</p>
             <div className='flex gap-2'>
                 <a href="/">Terms</a>
