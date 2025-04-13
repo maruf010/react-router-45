@@ -8,7 +8,7 @@ const User = ({user}) => {
             <h2 className='text-2xl'>{name}</h2>
             <p><small>Email:{email}</small></p>
             <p><small>Phone : {phone}</small></p>
-            <div className='text-center mt-5'>
+            <div className='text-center mt-5 bg-green-500'>
                 <Link to={`/users/${id}`} >Show Details</Link>
                 </div>
         </div>
