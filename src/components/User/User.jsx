@@ -6,10 +6,10 @@ const User = ({ user }) => {
     const [visitHome, setVisitHome] = useState(false);
     const [showInfo, setShowInfo] = useState(false);
     const { id, name, email, phone } = user;
-    
+
     const userInfoPromise = fetch(`https://jsonplaceholder.typicode.com/users/${id}`).then(res => res.json());
-    
-    if(visitHome){
+
+    if (visitHome) {
         return <Navigate to="/"></Navigate>
     }
 
@@ -26,7 +26,7 @@ const User = ({ user }) => {
                 <button onClick={() => setShowInfo(!showInfo)} className='btn text-center'>
                     {showInfo ? 'Hide' : 'Show info'}
                 </button>
-                <button onClick={() => setVisitHome(true)} className='btn bg-cyan-600'>Visit Home</button>
+
             </div>
             <div className='text-center'>
                 {
@@ -35,7 +35,9 @@ const User = ({ user }) => {
                     </Suspense>
                 }
             </div>
-            
+            <div className='text-center mt-3'>
+                <button onClick={() => setVisitHome(true)} className='btn bg-cyan-600 '>Visit Home</button>
+            </div>
         </div>
     );
 };
