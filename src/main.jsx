@@ -2,7 +2,7 @@ import { StrictMode, Suspense } from 'react'
 import { createRoot } from 'react-dom/client'
 import './index.css'
 import App from './App.jsx'
-import {createBrowserRouter,RouterProvider,} from "react-router";
+import { createBrowserRouter, RouterProvider, } from "react-router";
 import Root from './components/Root/Root.jsx';
 import Home from './components/Home/Home.jsx';
 import Mobiles from './components/Mobiles/Mobiles.jsx';
@@ -20,10 +20,10 @@ const router = createBrowserRouter([
   {
     path: "/",
     Component: Root,
-    children : [
-      {index:true ,Component: Home},
-      {path: 'mobiles',Component: Mobiles},
-      {path: 'laptops',Component:Laptops},
+    children: [
+      { index: true, Component: Home },
+      { path: 'mobiles', Component: Mobiles },
+      { path: 'laptops', Component: Laptops },
       {
         path: 'users',
         loader: () => fetch('https://jsonplaceholder.typicode.com/users'),
@@ -36,22 +36,26 @@ const router = createBrowserRouter([
         </Suspense>
       },
       {
-        path : 'users/:id',
-        loader: ({params}) => 
+        path: 'users/:id',
+        loader: ({ params }) =>
           fetch(`https://jsonplaceholder.typicode.com/users/${params.id}`),
-        Component:UserDetails
+        Component: UserDetails
       },
       {
         path: 'posts',
-        loader : () => fetch('https://jsonplaceholder.typicode.com/posts'),
+        loader: () => fetch('https://jsonplaceholder.typicode.com/posts'),
         Component: Posts
       },
       {
         path: 'posts/:id',
-        loader: ({params}) => fetch(`https://jsonplaceholder.typicode.com/posts/${params.id}`),
+        loader: ({ params }) => fetch(`https://jsonplaceholder.typicode.com/posts/${params.id}`),
         Component: PostDetails
       }
     ]
+  },
+  {
+    path: '*',
+    element: <h3 className='text-center text-7xl mt-24'>Not Found : 404</h3>
   }
 ]);
 
